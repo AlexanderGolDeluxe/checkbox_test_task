@@ -11,6 +11,7 @@ BASE_DIR = Path(__file__).parent.parent
 DEBUG_MODE = ENV.bool("DEBUG_MODE")
 DB_URL = (
     ENV.str("PG_DB_URL") or
+    Path(f"{BASE_DIR}/app/db").mkdir(parents=True, exist_ok=True) or
     f"sqlite+aiosqlite:///{BASE_DIR}/app/db/{BASE_DIR.stem}.sqlite3"
 )
 INVOICE_TICKET_MAX_WIDTH = ENV.int("INVOICE_TICKET_MAX_WIDTH")
