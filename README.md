@@ -1,7 +1,7 @@
 # Project checkbox_test_task
- REST API for creating and viewing invoices with user registration and authorization.
- Developed on the [FastAPI](https://fastapi.tiangolo.com/) framework.  
- Test task for the [Checkbox.ua](https://checkbox.ua)
+REST API for creating and viewing invoices with user registration and authorization.
+Developed on the [FastAPI](https://fastapi.tiangolo.com/) framework.  
+Test task for the [Checkbox.ua](https://checkbox.ua)
 
 ![Static Badge](https://img.shields.io/badge/Python-3.11+-blue?logo=python&logoColor=blue&labelColor=white)
 ![Static Badge](https://img.shields.io/badge/FastAPI-0.111.0-009485?logo=fastapi&labelColor=white)
@@ -18,10 +18,17 @@ git clone https://github.com/AlexanderGolDeluxe/checkbox_test_task
 ### Make a virtual environment with requirements
 
 ```console
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
 ### Generate RSA private key + public key pair
+
+Create a directory to store certificates
+```console
+mkdir ./certs
+```
 
 Generate an RSA private key, of size 2048
 ```shell
@@ -40,7 +47,7 @@ Rename file [`.env.dist`](/.env.dist) to `.env`
 mv .env.dist .env
 ```
 
-#### Change variables according to your required parameters
+#### Change variables according to your required parameters in `.env` file
 
 Set your PostgreSQL database variables
 ```
@@ -53,8 +60,8 @@ PG_PORT = 5432
 …
 ```
 
-> <span style="color:yellow; text-transform: uppercase">***Warning***</span>  
-*If you don't want to use PostgreSQL database, just leave `PG_DB_URL` variable empty. SQLite will be used instead*
+> <span style="color:yellow">***WARNING***</span>  
+*If you don't want to use PostgreSQL database, just leave* `PG_DB_URL` *variable empty. SQLite3 will be used instead*
 ```
 …
 PG_DB_URL = ""
@@ -69,7 +76,7 @@ uvicorn app:create_app --reload
 
 ## Testing
 
-For settings, use file [`pyproject.toml`](/pyproject.toml)
+For settings use file [`pyproject.toml`](/pyproject.toml)
 ```console
 pytest -v tests/
 ```
