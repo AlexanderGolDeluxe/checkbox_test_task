@@ -3,7 +3,7 @@ REST API for creating and viewing invoices with user registration and authorizat
 Developed on the [FastAPI](https://fastapi.tiangolo.com/) framework.  
 Test task for the [Checkbox.ua](https://checkbox.ua)
 
-![Static Badge](https://img.shields.io/badge/Python-3.11+-blue?logo=python&logoColor=blue&labelColor=white)
+![Static Badge](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=blue&labelColor=white)
 ![Static Badge](https://img.shields.io/badge/FastAPI-0.111.0-009485?logo=fastapi&labelColor=white)
 ![Static Badge](https://img.shields.io/badge/PostgreSQL-white?logo=postgresql)
 ![Static Badge](https://img.shields.io/badge/PyTest-8.2.0-009FE3?logo=pytest&labelColor=white)
@@ -80,3 +80,13 @@ For settings use file [`pyproject.toml`](/pyproject.toml)
 ```console
 pytest -v tests/
 ```
+
+## Build via Docker compose
+
+1. [Clone repository](#clone-repository)
+2. [Rename file `.env.dist` to `.env`](#manage-environment-variables)
+3. [Change variables according to your required parameters in `.env` file](#change-variables-according-to-your-required-parameters-in-env-file)
+4.  Run following command in your console:
+    ```console
+    docker compose -f "docker-compose.yml" up -d --build
+    ```

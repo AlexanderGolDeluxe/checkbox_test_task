@@ -1,4 +1,4 @@
-from datetime import UTC, datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import bcrypt
 import jwt
@@ -31,7 +31,7 @@ def encode_jwt(
         expire_timedelta: timedelta | None = None
     ):
     """Encodes data to JWT token"""
-    now = datetime.now(UTC)
+    now = datetime.now(tz=timezone.utc)
     payload_to_encode = payload.copy()
     payload_to_encode.update(
         iat=now,
