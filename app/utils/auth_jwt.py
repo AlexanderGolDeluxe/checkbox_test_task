@@ -22,7 +22,7 @@ oauth2_scheme = OAuth2PasswordBearer(
     tokenUrl=API_PREFIX + "/auth/jwt/login")
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 def encode_jwt(
         payload: dict,
         private_key: str = AUTH_JWT_PRIVATE_KEY,
@@ -42,7 +42,7 @@ def encode_jwt(
     return jwt.encode(payload_to_encode, private_key, algorithm)
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 def decode_jwt(
         token: str,
         public_key: str = AUTH_JWT_PUBLIC_KEY,
@@ -52,7 +52,7 @@ def decode_jwt(
     return jwt.decode(token, public_key, algorithms=[algorithm])
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 def hash_password(password: SecretStr | str):
     """Hashes password string into bytes"""
     if isinstance(password, SecretStr):
@@ -61,7 +61,7 @@ def hash_password(password: SecretStr | str):
     return bcrypt.hashpw(password.encode(), bcrypt.gensalt())
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 def validate_password(password: SecretStr | str, hashed_password: bytes):
     """Compares password string with the hashed password"""
     if isinstance(password, SecretStr):
@@ -70,7 +70,7 @@ def validate_password(password: SecretStr | str, hashed_password: bytes):
     return bcrypt.checkpw(password.encode(), hashed_password)
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 def get_current_token_payload(token: str = Depends(oauth2_scheme)):
     """
     Retrieves data encrypted in JWT token
@@ -86,7 +86,7 @@ def get_current_token_payload(token: str = Depends(oauth2_scheme)):
     return payload
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 async def validate_auth_user(
         username: str = Form(),
         password: SecretStr = Form(),

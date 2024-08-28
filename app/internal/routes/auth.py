@@ -13,7 +13,7 @@ from app.internal.crud.user import get_user_by_login
 router = APIRouter(prefix=API_PREFIX + "/auth", tags=["auth"])
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 async def get_current_auth_user(
         payload: dict = Depends(get_current_token_payload),
         session: AsyncSession = Depends(

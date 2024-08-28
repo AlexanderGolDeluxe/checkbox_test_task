@@ -6,7 +6,7 @@ from app.internal.models import Product
 from app.internal.schemas import ProductCreate
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 async def create_product(
         session: AsyncSession, product_in: ProductCreate
     ):

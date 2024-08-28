@@ -26,7 +26,7 @@ from app.utils.prettify_invoice import invoice_to_ticket_format
 from app.utils.work_with_dates import parse_like_date
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 async def create_invoice_item(
         session: AsyncSession, invoice_item_in: InvoiceItemBase
     ):
@@ -37,7 +37,7 @@ async def create_invoice_item(
     return invoice_item
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 async def generate_invoice(
         session: AsyncSession,
         invoice_in: InvoiceCreate,
@@ -105,7 +105,7 @@ async def generate_invoice(
     return InvoiceSchema(**created_invoice)
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 async def select_invoices(session: AsyncSession, where_clauses: list):
     """Executes query to search for invoices using received filters"""
     stmt = (
@@ -143,7 +143,7 @@ async def select_invoices(session: AsyncSession, where_clauses: list):
     return result
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 async def get_invoices(
         session: AsyncSession,
         owner_id: int,
@@ -195,7 +195,7 @@ async def get_invoices(
     return response
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 async def get_pretty_invoice(session: AsyncSession, invoice_id: int):
     """
     Finds for invoice by specified ID

@@ -4,7 +4,7 @@ from fastapi import HTTPException, status
 from loguru import logger
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 def parse_like_date(date_str: str):
     """
     Parses a string into date using formats:

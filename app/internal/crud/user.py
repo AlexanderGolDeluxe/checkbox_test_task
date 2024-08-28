@@ -10,7 +10,7 @@ from app.internal.schemas import UserCreate
 from app.utils import auth_jwt as auth_utils
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 def validate_creating_user(
         name: str = Form(min_length=3),
         login: str = Form(min_length=3),
@@ -20,7 +20,7 @@ def validate_creating_user(
     return UserCreate(name=name, login=login, password=password)
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 async def create_user(session: AsyncSession, user_in: UserCreate):
     """
     Inserts new user into database (table `user`)
@@ -46,7 +46,7 @@ async def create_user(session: AsyncSession, user_in: UserCreate):
     return user
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 async def get_user_by_login(session: AsyncSession, login: str):
     """Retrieves record about user from database using specified login"""
     stmt = select(User).where(User.login == login)

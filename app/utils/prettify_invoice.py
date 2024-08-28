@@ -29,13 +29,13 @@ ticket_response_example = {
 }
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 def add_thousands_separator(number: Decimal | float | int):
     """Formats float numbers into string with spaces between thousands"""
     return format(number, ",.2f").replace(",", " ")
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 def wrap_head_text(text: str, line_width: int, centered_line_width: int):
     """Centers header text within a block of fixed-length lines"""
     wrapped_text = (
@@ -45,7 +45,7 @@ def wrap_head_text(text: str, line_width: int, centered_line_width: int):
     return "\n".join(wrapped_text)
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 def add_space_between(
         text: str, number: Decimal | float | int, line_max_width: int
     ):
@@ -64,7 +64,7 @@ def add_space_between(
     return "\n".join(wrapped_text)
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 def products_text_formatting(
         products: list[InvoiceItemSchema], line_max_width: int
     ):
@@ -79,7 +79,7 @@ def products_text_formatting(
     return products_text_formatted
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 def invoice_to_ticket_format(invoice: InvoiceSchema):
     """Generates an invoice in `plain/text` ticket format"""
     ticket_max_width = INVOICE_TICKET_MAX_WIDTH

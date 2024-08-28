@@ -1,12 +1,12 @@
 # Project checkbox_test_task
 REST API for creating and viewing invoices with user registration and authorization.
-Developed on the [FastAPI](https://fastapi.tiangolo.com/) framework.  
+Developed on the [FastAPI](https://fastapi.tiangolo.com) framework.  
 Test task for the [Checkbox.ua](https://checkbox.ua)
 
 ![Static Badge](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=blue&labelColor=white)
-![Static Badge](https://img.shields.io/badge/FastAPI-0.111.0-009485?logo=fastapi&labelColor=white)
+![Static Badge](https://img.shields.io/badge/FastAPI-0.112.2-009485?logo=fastapi&labelColor=white)
 ![Static Badge](https://img.shields.io/badge/PostgreSQL-white?logo=postgresql)
-![Static Badge](https://img.shields.io/badge/PyTest-8.2.0-009FE3?logo=pytest&labelColor=white)
+![Static Badge](https://img.shields.io/badge/PyTest-8.3.2-009FE3?logo=pytest&labelColor=white)
 
 ## Installation
 

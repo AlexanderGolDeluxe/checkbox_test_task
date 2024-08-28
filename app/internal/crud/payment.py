@@ -5,7 +5,7 @@ from app.internal.models import Payment
 from app.internal.schemas import PaymentCreate
 
 
-@logger.catch(reraise=bool)
+@logger.catch(reraise=True)
 async def create_payment(
         session: AsyncSession, payment_in: PaymentCreate
     ):
